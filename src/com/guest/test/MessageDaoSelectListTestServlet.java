@@ -42,7 +42,7 @@ public class MessageDaoSelectListTestServlet extends HttpServlet {
 			conn = ConnectionProvider.getConnection();
 			MessageDao dao = MessageDao.getInstance();
 			
-			List<Message> list = dao.selectList(conn, firstRow, endRow);
+			List<Message> list = dao.selectList(conn);
 			
 			for (int i = 0; i<list.size(); i++) {
 				System.out.println("----"+ (i+1) + "-----");

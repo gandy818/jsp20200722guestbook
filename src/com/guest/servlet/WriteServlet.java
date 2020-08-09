@@ -45,9 +45,9 @@ public class WriteServlet extends HttpServlet {
 		String pw = request.getParameter("password");
 		String body = request.getParameter("message");
 		
-		if(name == null || pw == null || body == null 
-				|| name.isEmpty() || pw.isEmpty() || body.isEmpty()) {
-			session.setAttribute("info","이름, 암호, 메세지를 정확하게 입력해주세요");
+		if(name == null || body == null 
+				|| name.isEmpty() || body.isEmpty()) {
+			session.setAttribute("info","이름, 메세지를 정확하게 입력해주세요");
 		}else {
 		
 		

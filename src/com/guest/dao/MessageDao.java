@@ -36,11 +36,10 @@ public class MessageDao {
 		try {
 			pstmt = conn.prepareStatement(
 					"insert into guestbook_message " + 
-			"(guest_name, password, message) values (?, ?, ?)");
+			"(guest_name, message) values (?, ?)");
 
 			pstmt.setString(1, message.getGuestName());
-			pstmt.setString(2, message.getPassword());
-			pstmt.setString(3, message.getMessage());
+			pstmt.setString(2, message.getMessage());
 
 			return pstmt.executeUpdate();
 		} finally {
@@ -90,14 +89,12 @@ public class MessageDao {
 		}
 	}
 	
-	public List<Message> selectList(Connection conn, int firstRow, int endRow) throws SQLException {
+	public List<Message> selectList(Connection conn) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement("select * from guestbook_message " +
-											"order by message_id desc limit ?, ?");
-			pstmt.setInt(1, firstRow - 1);
-			pstmt.setInt(2, endRow - firstRow + 1);
+											"order by message_id desc");
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				List<Message> messageList = new ArrayList<Message>();
@@ -123,4 +120,5 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+
 }

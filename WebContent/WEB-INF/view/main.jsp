@@ -34,23 +34,16 @@
 <body class="bg-light">
 	
 
-
-
-
 	<div class="container my-3 shadow p-3" >
 		<my:alert />
-		<h1>방명록</h1>
+		<h1>댓글</h1>
 		<form action="write" method="post">
 			<div class="form-group">
 				<label for="exampleInputEmail1">이름:</label> <input
 					required="required" type="text" name="name" class="form-control"
 					id="exampleInputEmail1" aria-describedby="emailHelp">
 			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">암호:</label> <input
-					required="required" type="password" name="password"
-					class="form-control" id="exampleInputPassword1">
-			</div>
+
 			<div class="form-group">
 				<label for="exampleFormControlTextarea1">메시지:</label>
 				<textarea required="required" name="message" class="form-control"
@@ -58,10 +51,10 @@
 			</div>
 			<button type="submit" class="btn btn-primary">메시지 등록</button>
 		</form>
-
-
-
 	</div>
+
+
+
 
 	<hr />
 
@@ -81,51 +74,10 @@
 		</c:forEach>
 	</div>
 
-	<div class="container my-3 p-3">
-		<nav aria-label="Page navigation example">
-			<ul class="pagination justify-content-center">
-				<c:forEach begin="1" end="${list.pageTotalCount }" var="i">
-					<li class="page-item"><a class="page-link"
-						href="main?page=${i }">${i }</a></li>
-				</c:forEach>
-
-			</ul>
-		</nav>
-	</div>
 
 
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">암호 확인</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="delete-form" action="delete" method="post">
-						<input type="text" class="d-none form-control" name="id"
-							id="recipient-name">
 
-						<div class="form-group">
-							<label for="message-text" class="col-form-label">암호:</label> <input
-								type="password" name="password" class="form-control"
-								id="message-text">
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<input class="btn btn-danger" type="submit" form="delete-form"
-						value="삭제" />
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </body>
 </html>

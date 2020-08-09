@@ -37,6 +37,7 @@ public class MainServlet extends HttpServlet {
 			page = Integer.valueOf(pageStr);
 		}
 		
+		
 		GetMessageListService service = GetMessageListService.getInstance();
 		MessageListView list = service.getMessageList(page);
 		
